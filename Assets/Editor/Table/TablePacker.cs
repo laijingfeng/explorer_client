@@ -552,6 +552,18 @@ public partial class TablePacker : EditorWindow
                     Directory.SetCurrentDirectory(dir);
                     return;
                 }
+
+                if(Directory.Exists(dir + m_strGamePath))
+                {
+                    string gameDirectory = dir + m_strGamePath + "AssetBundles/Table/";
+                    if(Directory.Exists(gameDirectory) == false)
+                    {
+                        Directory.CreateDirectory(gameDirectory);
+                    }
+                    string gamePath = gameDirectory + bytesName + ".bytes";
+                    
+                    File.Copy(table_outputStreamingPath + bytesName + ".bytes", gamePath, true);
+                }
             }
 
             Directory.SetCurrentDirectory(dir);
