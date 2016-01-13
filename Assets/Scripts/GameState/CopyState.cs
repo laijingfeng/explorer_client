@@ -44,7 +44,6 @@ public class CopyState : GameState<CopyState>
     {
         if (win)
         {
-            m_iScore++;
             MessageBox.Instance.Show("胜利，得分：" + m_iScore);
         }
         else
@@ -68,9 +67,7 @@ public class CopyState : GameState<CopyState>
     public override void Init()
     {
         base.Init();
-        //Level.Instance.Init();
         CopyUI.Instance.Show();
-        //Level.Instance.CreateNoFatherTriggers();
     }
 
     public override void OnExit()

@@ -59,8 +59,6 @@ public class SceneManager : Singleton<SceneManager>
         }
         levelGo = UnityEngine.Object.Instantiate(res.MainAsset) as GameObject;
         levelGo.name = levelGo.name.Replace("(Clone)", "");
-
-        //Level.Instance.Init();
     }
 
     /// <summary>

@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
 	public float deathSpinMin = -100f;			// A value to give the minimum amount of Torque when dying
 	public float deathSpinMax = 100f;			// A value to give the maximum amount of Torque when dying
 
-    private TriggerBase m_avatarBase;
+    private TriggerBoss m_avatarBase;
 
 	private SpriteRenderer ren;			// Reference to the sprite renderer.
 	private Transform frontCheck;		// Reference to the position of the gameobject used for checking if something is in front.
@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        m_avatarBase = this.GetComponentInParent<TriggerBase>();
+        m_avatarBase = this.GetComponentInParent<TriggerBoss>();
     }
 
 	void FixedUpdate ()
@@ -125,7 +125,7 @@ public class Enemy : MonoBehaviour
 
         if (m_avatarBase != null)
         {
-            m_avatarBase.Dead();
+            m_avatarBase.OnFinish();
         }
 	}
 
