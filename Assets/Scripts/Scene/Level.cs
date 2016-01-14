@@ -81,6 +81,8 @@ public class Level : MonoBehaviour
     /// </summary>
     private void CreateTrigger()
     {
+        m_dicID2Trigger.Clear();
+
         TriggerBase trigger;
         bool done = true;
         do
@@ -88,6 +90,11 @@ public class Level : MonoBehaviour
             done = true;
             foreach (TriggerBase config in m_listTrigger)
             {
+                if (m_dicID2Trigger.ContainsKey(config.m_iUniqueID))
+                {
+                    continue;
+                }
+
                 if (config.m_Father == null)
                 {
                     trigger = EntryManager.Instance.CreateTrigger(config);
@@ -97,7 +104,7 @@ public class Level : MonoBehaviour
                 else
                 {
                     TriggerBase father = null;
-                    if (m_dicID2Trigger.TryGetValue(config.m_iUniqueID, out father))
+                    if (m_dicID2Trigger.TryGetValue(config.m_Father.m_iUniqueID, out father))
                     {
                         config.m_Father = father;
                         trigger = EntryManager.Instance.CreateTrigger(config);
@@ -110,6 +117,6 @@ public class Level : MonoBehaviour
                     }
                 }
             }
-        } while (done);
+        } while (!done);
     }
 }
