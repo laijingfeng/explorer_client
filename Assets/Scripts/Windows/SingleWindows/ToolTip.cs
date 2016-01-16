@@ -72,8 +72,9 @@ public class ToolTip : SingletonWindow<ToolTip>
             return;
         }
 
-        UIUtil.RemoveClickFunction(goTarget);
         CustomData.Set(goTarget, new ToolTipInputData() { m_data = data });
+        //UIUtil.RemoveClickFunction(goTarget);//这样有些小问题，把所有的事件都去掉了，有些不能去掉
+        UIEventListener.Get(goTarget).onClick -= OnClickToolTip;
         UIEventListener.Get(goTarget).onClick += OnClickToolTip;
     }
 

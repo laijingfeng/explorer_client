@@ -173,7 +173,7 @@ MonoBehaviour:
     cutBorderRight: 0
     cutBorderTop: 0
     cutBorderBottom: 0
-  - name: diban1
+  - name: 
     outer:
       serializedVersion: 2
       x: 237
@@ -270,15 +270,15 @@ MonoBehaviour:
       height: 4
     inner:
       serializedVersion: 2
-      x: 239
-      y: 217
-      width: 4
-      height: 4
+      x: 240
+      y: 218
+      width: 2
+      height: 2
     rotated: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
+    paddingLeft: .25
+    paddingRight: .25
+    paddingTop: .25
+    paddingBottom: .25
     cutBorderLeft: 0
     cutBorderRight: 0
     cutBorderTop: 0
@@ -406,6 +406,28 @@ MonoBehaviour:
       y: 182
       width: 8
       height: 7
+    rotated: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+    cutBorderLeft: 0
+    cutBorderRight: 0
+    cutBorderTop: 0
+    cutBorderBottom: 0
+  - name: fanweikuang
+    outer:
+      serializedVersion: 2
+      x: 197
+      y: 128
+      width: 28
+      height: 27
+    inner:
+      serializedVersion: 2
+      x: 205
+      y: 136
+      width: 12
+      height: 11
     rotated: 0
     paddingLeft: 0
     paddingRight: 0

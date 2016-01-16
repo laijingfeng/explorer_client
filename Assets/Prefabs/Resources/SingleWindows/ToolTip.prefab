@@ -14,7 +14,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ Transform:
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .015625, y: .015625, z: .015625}
+  m_LocalScale: {x: .0093896715, y: .0093896715, z: .0093896715}
   m_Children:
   - {fileID: 400000}
   m_Father: {fileID: 0}
@@ -286,13 +286,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d33c6354b54fb847b16b36e1391868d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMat: {fileID: 0}
-  mTex: {fileID: 0}
+  mMat: {fileID: 2100000, guid: 30fa6244728cc0d46b181fef912cd87b, type: 2}
+  mTex: {fileID: 2800000, guid: 6d0f4b75b4549e645996da8e1584c3e4, type: 3}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mDepth: 0
   mAtlas: {fileID: 11400000, guid: d3659c9ff30e1ff42a3ec4ac0f0820f0, type: 2}
-  mSpriteName: 6d696e677a696b75616e67
+  mSpriteName: kfei2
   mFillCenter: 1
   mType: 0
   mFillDirection: 4
@@ -324,13 +324,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d0b5f3bbe925a408bd595c79d0bf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMat: {fileID: 0}
+  mMat: {fileID: 2100000, guid: a7ca9135d1463a74d9fb7de59621295d, type: 2}
   mTex: {fileID: 0}
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 0
   mDepth: 0
   mFont: {fileID: 11400000, guid: 5fe21930c88501f49ac91852fa2aaafe, type: 2}
-  mText: 3130393939393939393939393939393939393939393939393939393939393939
+  mText: 123
   mMaxLineWidth: 190
   mEncoding: 1
   mMaxLineCount: 0

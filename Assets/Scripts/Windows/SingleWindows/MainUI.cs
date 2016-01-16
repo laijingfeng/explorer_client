@@ -18,6 +18,11 @@ public class MainUI : SingletonWindow<MainUI>
     private UIGrid m_gdGrid;
 
     /// <summary>
+    /// 按钮1
+    /// </summary>
+    private GameObject m_goBtn1;
+
+    /// <summary>
     /// 面板
     /// </summary>
     private UIDraggablePanel m_dpDraggablePanel;
@@ -28,6 +33,10 @@ public class MainUI : SingletonWindow<MainUI>
         m_goPrefab.SetActive(false);
         m_gdGrid = Util.FindCo<UIGrid>(gameObject, "Grid");
         m_dpDraggablePanel = Util.FindCo<UIDraggablePanel>(gameObject, "DraggablePanel");
+
+        m_goBtn1 = Util.FindGo(gameObject, "Btn1");
+        ToolTip.SetToolTip(m_goBtn1, "hello, btn1");
+        UIEventListener.Get(m_goBtn1).onClick += OnClickBtn1;
     }
 
     public override void OnShow()
@@ -74,6 +83,15 @@ public class MainUI : SingletonWindow<MainUI>
         uint sceneID = (uint)CustomData.Get(go);
 
         SceneManager.Instance.ChangeStateWithScene(sceneID);
+    }
+
+    /// <summary>
+    /// 点击按钮1
+    /// </summary>
+    /// <param name="go"></param>
+    private void OnClickBtn1(GameObject go)
+    {
+        MessageBox.Instance.Show("Btn1");
     }
 
     public override void OnHide()
