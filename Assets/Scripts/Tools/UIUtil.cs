@@ -135,6 +135,11 @@ public class UIUtil
         SetLayerRecursively(uiFxGO, LayerMask.NameToLayer("UI"));
     }
 
+    /// <summary>
+    /// 设置层级
+    /// </summary>
+    /// <param name="go"></param>
+    /// <param name="newLayer"></param>
     public static void SetLayerRecursively(GameObject go, int newLayer)
     {
         if (null == go)
