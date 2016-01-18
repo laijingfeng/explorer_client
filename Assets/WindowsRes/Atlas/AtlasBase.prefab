@@ -275,14 +275,14 @@ MonoBehaviour:
       width: 2
       height: 2
     rotated: 0
-    paddingLeft: .25
-    paddingRight: .25
-    paddingTop: .25
-    paddingBottom: .25
-    cutBorderLeft: 0
-    cutBorderRight: 0
-    cutBorderTop: 0
-    cutBorderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+    cutBorderLeft: 1
+    cutBorderRight: 1
+    cutBorderTop: 1
+    cutBorderBottom: 1
   - name: jiesuanhuang
     outer:
       serializedVersion: 2

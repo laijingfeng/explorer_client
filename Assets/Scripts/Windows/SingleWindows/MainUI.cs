@@ -35,7 +35,7 @@ public class MainUI : SingletonWindow<MainUI>
         m_dpDraggablePanel = Util.FindCo<UIDraggablePanel>(gameObject, "DraggablePanel");
 
         m_goBtn1 = Util.FindGo(gameObject, "Btn1");
-        ToolTip.SetToolTip(m_goBtn1, "hello, btn1");
+        //ToolTip.SetToolTip(m_goBtn1, "hello, btn1");
         UIEventListener.Get(m_goBtn1).onClick += OnClickBtn1;
     }
 
@@ -67,6 +67,8 @@ public class MainUI : SingletonWindow<MainUI>
         {
             m_dpDraggablePanel.ResetPosition();
         }
+
+        MainUIGuide.Instance.ProcessGuide(this);
     }
 
     /// <summary>

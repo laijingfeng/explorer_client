@@ -39,6 +39,9 @@ public class SingletonWindow<T> : SingletonMono<T>, LikeWindow where T : UnityEn
     /// </summary>
     private GameObject m_goWindow;
 
+    /// <summary>
+    /// 注意用Awake时，加上override
+    /// </summary>
     public override void Awake()
     {
         base.Awake();
@@ -98,6 +101,7 @@ public class SingletonWindow<T> : SingletonMono<T>, LikeWindow where T : UnityEn
     {
         if (m_goWindow == null)
         {
+            Debug.LogError("da "  + this.name);
             return;
         }
 
@@ -111,7 +115,6 @@ public class SingletonWindow<T> : SingletonMono<T>, LikeWindow where T : UnityEn
     /// </summary>
     public virtual void OnShow()
     {
-
     }
 
     /// <summary>
