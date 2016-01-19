@@ -59,6 +59,7 @@ public class GameApp : SingletonMono<GameApp>
     {
         GameObject goUICamera = Util.FindGo(gameObject, "2DUICamera");
         Object[] wins = Resources.LoadAll("SingleWindows");
+
         foreach (Object obj in wins)
         {
             GameObject go = GameObject.Find(obj.name);
