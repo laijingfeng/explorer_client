@@ -36,6 +36,9 @@ public class CopyState : GameState<CopyState>
     {
         GameObject go = EntryManager.Instance.CreateHero(res.MainAsset);
         go.transform.position = Level.Instance.m_PlayerPos;
+
+        go.AddComponent<PlayerAttr>();
+        PlayerAttr.Instance.Init();
     }
 
     /// <summary>
