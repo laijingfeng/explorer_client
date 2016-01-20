@@ -47,11 +47,11 @@ public class SceneManager : Singleton<SceneManager>
         
         if(m_CurrentSceneTable != null)
         {
-            res = ResourceManager.Instance.LoadResource(string.Format("Scene/{0}.unity3d", m_CurrentSceneTable.scene_name), false);
-            res.onLoaded += OnSceneLoaded;
-
             res = ResourceManager.Instance.LoadResource(string.Format("Scene/{0}.unity3d", m_CurrentSceneTable.level_name), false);
             res.onLoaded += OnLevelLoaded;
+
+            res = ResourceManager.Instance.LoadResource(string.Format("Scene/{0}.unity3d", m_CurrentSceneTable.scene_name), false);
+            res.onLoaded += OnSceneLoaded;
         }
         
         return res;

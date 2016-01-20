@@ -11,6 +11,17 @@ public class CopyState : GameState<CopyState>
     /// </summary>
     private int m_iScore = 0;
 
+    /// <summary>
+    /// 积分
+    /// </summary>
+    public int Score
+    {
+        get
+        {
+            return m_iScore;
+        }
+    }
+
     public override void EnterAndLoadStaticRes()
     {
         m_iScore = 0;
@@ -24,7 +35,8 @@ public class CopyState : GameState<CopyState>
     {
         base.LoadDynamicRes();
 
-        Resource res = ResourceManager.Instance.LoadResource("hero.unity3d", false);
+        Table.SCENE sceneTable = SceneManager.CurrentSceneTable;
+        Resource res = ResourceManager.Instance.LoadResource(string.Format("{0}.unity3d", sceneTable.hero_name), false);
         res.onLoaded += OnHeroLoaded;
     }
 
@@ -45,7 +57,7 @@ public class CopyState : GameState<CopyState>
     {
         CopyUI.Instance.RefreshAttr();
 
-        if(PlayerAttr.Instance.Blood <= 0)
+        if (PlayerAttr.Instance.Blood <= 0)
         {
             Finish(false);
         }
@@ -57,6 +69,7 @@ public class CopyState : GameState<CopyState>
     public void AddScore()
     {
         m_iScore++;
+        OnPlayerAttrChange();
     }
 
     /// <summary>
@@ -65,6 +78,9 @@ public class CopyState : GameState<CopyState>
     /// <param name="win"></param>
     public void Finish(bool win)
     {
+        //触发器在OnDestroy的时候还会触发，标记结束，忽略后续事件
+        Level.Instance.onTriggerFinish -= OnTriggerFinish;
+
         if (win)
         {
             MessageBox.Instance.Show("胜利，得分：" + m_iScore);
@@ -85,7 +101,7 @@ public class CopyState : GameState<CopyState>
         Level.Instance.onTriggerFinish += OnTriggerFinish;
         CopyUI.Instance.Show();
         Table.SCENE sceneTable = SceneManager.CurrentSceneTable;
-        PlayerAttr.Instance.Init(sceneTable.blood, sceneTable.jump_count);
+        PlayerAttr.Instance.Init(sceneTable.blood, sceneTable.jump_count, OnPlayerAttrChange);
     }
 
     /// <summary>
@@ -96,7 +112,7 @@ public class CopyState : GameState<CopyState>
     {
         if (trigger is TriggerBoss)
         {
-            AddScore();
+            AddScore();//积分方式有问题，不一定是主角杀死的
         }
         else if (trigger is TriggerRange
             && string.IsNullOrEmpty((trigger as TriggerRange).m_strItemName) == false)

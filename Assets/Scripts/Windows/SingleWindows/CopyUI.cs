@@ -17,6 +17,11 @@ public class CopyUI : SingletonWindow<CopyUI>
     private GameObject m_goButtonRestart;
 
     /// <summary>
+    /// 属性
+    /// </summary>
+    private GameObject m_goAttr;
+
+    /// <summary>
     /// 血量
     /// </summary>
     private UILabel m_lbBlood;
@@ -27,9 +32,9 @@ public class CopyUI : SingletonWindow<CopyUI>
     private UILabel m_lbJump;
 
     /// <summary>
-    /// 属性
+    /// 积分
     /// </summary>
-    private GameObject m_goAttr;
+    private UILabel m_lbScore;
 
     void Start()
     {
@@ -41,6 +46,7 @@ public class CopyUI : SingletonWindow<CopyUI>
         m_goAttr = Util.FindGo(gameObject, "Attr");
         m_lbBlood = Util.FindCo<UILabel>(m_goAttr, "Blood");
         m_lbJump = Util.FindCo<UILabel>(m_goAttr, "Jump");
+        m_lbScore = Util.FindCo<UILabel>(m_goAttr, "Score");
     }
 
     /// <summary>
@@ -73,20 +79,20 @@ public class CopyUI : SingletonWindow<CopyUI>
     {
         Table.SCENE sceneTable = SceneManager.CurrentSceneTable;
 
-        Debug.LogError(" " + sceneTable.jump_count + " " + sceneTable.blood);
-
         m_lbBlood.text = PlayerAttr.Instance.Blood.ToString();
         int blood = PlayerAttr.Instance.Blood - sceneTable.blood;
         if (blood != 0)
         {
-            m_lbBlood.text += string.Format("{0}{1}[-]", blood > 0 ? "[00FF00]+" : "[FF0000]", blood);
+            m_lbBlood.text += string.Format("({0}{1}[-])", blood > 0 ? "[00FF00]+" : "[FF0000]", blood);
         }
 
         m_lbJump.text = PlayerAttr.Instance.JumpCount.ToString();
         int jump = PlayerAttr.Instance.JumpCount - sceneTable.jump_count;
         if (jump != 0)
         {
-            m_lbJump.text += string.Format("{0}{1}[-]", jump > 0 ? "[00FF00]+" : "[FF0000]", jump);
+            m_lbJump.text += string.Format("({0}{1}[-])", jump > 0 ? "[00FF00]+" : "[FF0000]", jump);
         }
+
+        m_lbScore.text = CopyState.Instance.Score.ToString();
     }
 }

@@ -162,6 +162,24 @@ namespace Table
     private bool ShouldSerializejump_count() { return jump_countSpecified; }
     private void Resetjump_count() { jump_countSpecified = false; }
     
+
+    private string _hero_name;
+    [global::ProtoBuf.ProtoMember(9, IsRequired = false, Name=@"hero_name", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public string hero_name
+    {
+      get { return _hero_name?? ""; }
+      set { _hero_name = value; }
+    }
+    //Here has been replaced by XXMMLLDeleter
+    [global::System.ComponentModel.Browsable(false)]
+    public bool hero_nameSpecified
+    {
+      get { return _hero_name != null; }
+      set { if (value == (_hero_name== null)) _hero_name = value ? hero_name : (string)null; }
+    }
+    private bool ShouldSerializehero_name() { return hero_nameSpecified; }
+    private void Resethero_name() { hero_nameSpecified = false; }
+    
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
