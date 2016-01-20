@@ -22,6 +22,17 @@ public class SceneManager : Singleton<SceneManager>
     private static Table.SCENE m_CurrentSceneTable;
 
     /// <summary>
+    /// 当前场景表
+    /// </summary>
+    public static Table.SCENE CurrentSceneTable
+    {
+        get
+        {
+            return m_CurrentSceneTable;
+        }
+    }
+
+    /// <summary>
     /// 上一个场景表
     /// </summary>
     private static Table.SCENE m_LastSceneTable;

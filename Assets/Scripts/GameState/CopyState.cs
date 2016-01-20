@@ -36,9 +36,19 @@ public class CopyState : GameState<CopyState>
     {
         GameObject go = EntryManager.Instance.CreateHero(res.MainAsset);
         go.transform.position = Level.Instance.m_PlayerPos;
+    }
 
-        go.AddComponent<PlayerAttr>();
-        PlayerAttr.Instance.Init();
+    /// <summary>
+    /// 主角属性变化
+    /// </summary>
+    private void OnPlayerAttrChange()
+    {
+        CopyUI.Instance.RefreshAttr();
+
+        if(PlayerAttr.Instance.Blood <= 0)
+        {
+            Finish(false);
+        }
     }
 
     /// <summary>
@@ -74,6 +84,8 @@ public class CopyState : GameState<CopyState>
         Level.Instance.onTriggerFinish -= OnTriggerFinish;
         Level.Instance.onTriggerFinish += OnTriggerFinish;
         CopyUI.Instance.Show();
+        Table.SCENE sceneTable = SceneManager.CurrentSceneTable;
+        PlayerAttr.Instance.Init(sceneTable.blood, sceneTable.jump_count);
     }
 
     /// <summary>

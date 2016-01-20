@@ -68,7 +68,7 @@ public class MainUI : SingletonWindow<MainUI>
             m_dpDraggablePanel.ResetPosition();
         }
 
-        MainUIGuide.Instance.ProcessGuide(this);
+        //MainUIGuide.Instance.ProcessGuide(this);
     }
 
     /// <summary>

@@ -126,6 +126,42 @@ namespace Table
     private bool ShouldSerializelevel_name() { return level_nameSpecified; }
     private void Resetlevel_name() { level_nameSpecified = false; }
     
+
+    private int? _blood;
+    [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"blood", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int blood
+    {
+      get { return _blood?? default(int); }
+      set { _blood = value; }
+    }
+    //Here has been replaced by XXMMLLDeleter
+    [global::System.ComponentModel.Browsable(false)]
+    public bool bloodSpecified
+    {
+      get { return _blood != null; }
+      set { if (value == (_blood== null)) _blood = value ? blood : (int?)null; }
+    }
+    private bool ShouldSerializeblood() { return bloodSpecified; }
+    private void Resetblood() { bloodSpecified = false; }
+    
+
+    private int? _jump_count;
+    [global::ProtoBuf.ProtoMember(8, IsRequired = false, Name=@"jump_count", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int jump_count
+    {
+      get { return _jump_count?? default(int); }
+      set { _jump_count = value; }
+    }
+    //Here has been replaced by XXMMLLDeleter
+    [global::System.ComponentModel.Browsable(false)]
+    public bool jump_countSpecified
+    {
+      get { return _jump_count != null; }
+      set { if (value == (_jump_count== null)) _jump_count = value ? jump_count : (int?)null; }
+    }
+    private bool ShouldSerializejump_count() { return jump_countSpecified; }
+    private void Resetjump_count() { jump_countSpecified = false; }
+    
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
